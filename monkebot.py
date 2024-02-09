@@ -1,3 +1,5 @@
+import os
+
 import discord
 import time
 import random
@@ -9,6 +11,9 @@ intents.message_content = True
 intents.members = True
 client = commands.Bot(command_prefix='Monke, ', intents=intents)
 pass_context = True
+
+
+DISCORD_API_SECRET = os.getenv("DISCORD_API_TOKEN")
 
 
 @client.event
@@ -118,4 +123,4 @@ async def mute(ctx, member: discord.Member):
     await ctx.send(f'{member} was muted for violating the rules. To learn more, look up discord rule 34.')
 
 
-client.run('NzYwMjY3NTk2OTAwNzI4ODUz.X3JkYA.Mr0P9ku2-hPg760vAo9cUrx0mNU')
+client.run(DISCORD_API_SECRET)
