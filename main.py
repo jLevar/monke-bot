@@ -4,7 +4,9 @@ import discord
 import time
 import random
 from discord.ext import commands
-from discord.utils import get
+from dotenv import load_dotenv
+
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -121,6 +123,5 @@ async def mute(ctx, member: discord.Member):
     role = discord.utils.get(ctx.guild.roles, name="Muted")
     await ctx.member.add_roles(role)
     await ctx.send(f'{member} was muted for violating the rules. To learn more, look up discord rule 34.')
-
 
 client.run(DISCORD_API_SECRET)
